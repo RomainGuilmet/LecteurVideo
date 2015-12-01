@@ -1,14 +1,14 @@
-//On a besoin de connaître le nombre d'images par secondes de la vidéo
+//Il est nécessaire de connaître le nombre d'images par secondes de la vidéo
 var imgPerSec = 25;
 
 //Et la durée de la vidéo en secondes
 var videoDuration = 7.2;
 
-//On récupére l'emplacement des images et le nom par défaut de la série (ici test)
+//Il faut récupérer l'emplacement des images et le nom par défaut de la série (ici test)
 var imgSrc = "./images/test";
 //Ainsi que le format des images
 var imgType = ".jpg"
-//On va remplir un tableau d'images de taille 1 + la durée de la vidéo multipliée par le nombre d'images par secondes avec les images de la vidéo
+//Il faut alors remplir un tableau d'images de taille 1 + la durée de la vidéo multipliée par le nombre d'images par secondes avec les images de la vidéo
 var imgArray = new Array();
 for(var i=0; i<imgPerSec*videoDuration+1; i++)
 {
@@ -23,22 +23,25 @@ for(var i=0; i<imgPerSec*videoDuration+1; i++)
 		imgArray[i].src = imgSrc+i+imgType;
 }
 
-//On récupère la piste audio (qui sera utilisée plus tard)
+//Je récupère la piste audio
 var audioSrc = "./audio/test.mp3";
 
-//On récupère les différents éléments d'affichaages (la progressBar et le canvas de vidéo)
+//Je récupère les différents éléments d'affichaages (la progressBar et le canvas de vidéo)
 var progressBar = document.getElementById('progressBar');
 var canvas = document.getElementById('video');
 
-//On initialise le contexte pour pouvoir dessiner les images dans le canvas
+//J'initialise le contexte pour pouvoir dessiner les images dans le canvas
 var context = canvas.getContext('2d');
 
-//On initiliase un compteur à 0 qui servira à nous positionner dans le tableau d'images
+//Je crée dynamiquement la balise audio
+var audio = new Audio(audioSrc);
+
+//J'initiliase un compteur à 0 qui servira à nous positionner dans le tableau d'images
 var cpt = 0;
 //Et un booléen à faux pour dire que la vidéo n'est pas en train d'être jouée
 var isPlaying = false;
 
-//On appelle la fonction next afin de préparer le canvas avec la première image
+//J'appelle la fonction next afin de préparer le canvas avec la première image
 setTimeout(next, 1000/imgPerSec);
 
 /*
@@ -70,5 +73,11 @@ function play()
 {
 	isPlaying = !isPlaying;
 	if(isPlaying)
+	{
 		next();
+		audio.play();
+	}
+	else
+		audio.pause();
+		
 }
