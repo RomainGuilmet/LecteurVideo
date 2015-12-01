@@ -26,9 +26,10 @@ for(var i=0; i<imgPerSec*videoDuration+1; i++)
 //Je récupère la piste audio
 var audioSrc = "./audio/test.mp3";
 
-//Je récupère les différents éléments d'affichaages (la progressBar et le canvas de vidéo)
+//Je récupère les différents éléments d'affichages (le canvas de vidéo, la progressBar et le bouton)
 var progressBar = document.getElementById('progressBar');
 var canvas = document.getElementById('video');
+var buttonPlay = document.getElementById('playButton');
 
 //J'initialise le contexte pour pouvoir dessiner les images dans le canvas
 var context = canvas.getContext('2d');
@@ -69,15 +70,18 @@ Cette fonction est appelée au clic sur le canvas de vidéo ou sur le bouton pla
 Elle change l'état du booléen isPlaying et lance donc la vidéo ou la met en pause (en fonction de l'état précédent).
 Si elle lance la vidéo, elle appelle alors la fonction next()
 */
-function play()
+function togglePlayPause()
 {
 	isPlaying = !isPlaying;
 	if(isPlaying)
 	{
 		next();
 		audio.play();
+		buttonPlay.className = "pause";
 	}
 	else
+	{
 		audio.pause();
-		
+		buttonPlay.className = null;
+	}		
 }

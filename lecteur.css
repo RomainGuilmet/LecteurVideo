@@ -1,10 +1,48 @@
+.header {
+	text-align: center;
+	position:fixed;
+	color: white;
+	background: black;
+	top:0;
+	left:0;
+	right:0;
+	-webkit-box-shadow: 0px 2px 15px #000;
+	-moz-box-shadow: 2px 2px 20px #000;
+}
+.footer {
+	text-align: center;
+	position:fixed;
+	color: white;
+	background: black;
+	bottom:0;
+	left:0;
+	right:0;
+	-webkit-box-shadow: 0px 2px 15px #000;
+	-moz-box-shadow: 2px 2px 20px #000;
+}
+
+
+.player {
+	padding-top:120px;
+	text-align: center
+}
+
 canvas {
-    margin: auto auto;
+	margin: auto auto;
     display: block;
 	border: 1px solid #404040;
 }
     
 progress {
-    width: 640;
-	position: relative;
+    width: 620px;
 }
+
+button {
+	width: 16px;
+	height: 16px;
+	border: none;
+	cursor: pointer;
+	background: transparent url('./res/buttons.png') no-repeat 0 0;
+}
+
+.pause { background-position:-19px 0; }
