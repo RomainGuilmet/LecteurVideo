@@ -1,0 +1,1 @@
+25 images secondes => 1 image toutes les 0,04s

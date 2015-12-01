@@ -1,0 +1,10 @@
+canvas {
+    margin: auto auto;
+    display: block;
+	border: 1px solid #404040;
+}
+    
+progress {
+    width: 640;
+	position: relative;
+}
